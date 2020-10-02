@@ -3,25 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JQuery</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script>
         $(document).ready(function()
         {
             // Elements selector...
-           $("button").click(function()
+        //    $("button").click(function()
+        //    {
+        //         $("p").hide();
+        //    });
+        // ----------------------------------------------------------------------
+
+           // Id selector...
+        //    $("button").click(function()
+        //    {
+        //        $("#head6").hide();
+        //    });
+        // ------------------------------------------------------------------------
+
+            // Class selector...
+        //    $("button").click(function()
+        //    {
+        //        $(".class").hide();
+        //    });
+
+        });
+// -------------------------------------------------------------------------------------------------
+        $(document).ready(function()
+        {
+            $("button").dblclick(function()
+            {
+                $("#dblclk").hide();
+            });
+        });
+// ------------------------------------------------------------------------------------------------------
+
+        $(document).ready(function()
+        {
+           $("#hover").hover(function()
            {
-                $("p").hide();
+               alert("You entered hover paragraph");
+           },
+           function()
+           {
+               alert("You are left hover paragraph");
            });
+        });
+// -------------------------------------------------------------------------------------
+
+        $(document).ready(function()
+        {
+            $("input").focus(function()
+            {
+            $(this).css("background-color", "yellow");
+            });
+
+            $("input").blur(function()
+            {
+            $(this).css("background-color", "red");
+            }); 
+        });
+// -----------------------------------------------------------------------------------
+        $(document).ready(function()
+        {
+            $("strong").on({
+                mouseenter: function()
+                {
+                    $(this).css("font-size", "50px");
+                },
+
+                mouseleave: function()
+                {
+                    $(this).css("font-style", "serif");
+                },
+
+                click: function()
+                {
+                    $(this).css("background-color", "grey");
+                }
+            });
         });
     </script>
 
 </head>
 <body>
+    <strong>I am a strong string</strong><br><br>
+    <form action="">
+        <input type="text" placeholder="Enter Name" />
+        <br>
+        <input type="text" placeholder="Enter Email" />
+    </form>
+
     <p>This is a testing paragraph 1</p>
-    <p>This is a testing paragraph 2</p>
     <button>Hide paragraphs</button>
+
+    <h6 id="head6">This is an h6 heading</h6>
+    <button>Hide H6 heading</button>
+
+    <p class="class">This is a class element</p>
+    <button>Hide class element</button>
+
+    <p id="dblclk">This will disappear once i double click the button below.</p>
+    <button>Double-click me!</button>
+
+    <p id="hover">Hover over me and see...</p>
 </body>
 
 </html>
